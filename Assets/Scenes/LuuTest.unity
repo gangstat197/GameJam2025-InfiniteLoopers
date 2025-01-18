@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2483,6 +2483,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1083191406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083191408}
+  - component: {fileID: 1083191407}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1083191407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083191406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6419fb796be3f5946b33ab579bc8890e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1083191408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083191406}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.035446, y: 7.3788023, z: 0.2852606}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1117366026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,7 +3068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c750a1c2613e24983df13b6148b1e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 0000000000000000000000000000000000000000
+  points: 0500000000000000000000000000000000000000
 --- !u!1 &1460090046
 GameObject:
   m_ObjectHideFlags: 0
@@ -3336,6 +3380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1587296169}
+  - component: {fileID: 1587296170}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3363,6 +3408,18 @@ Transform:
   - {fileID: 255371052}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1587296170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587296168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ebb4e7e946384a46af092105b465167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1596833791
 GameObject:
   m_ObjectHideFlags: 0
@@ -5526,3 +5583,4 @@ SceneRoots:
   - {fileID: 1722139007}
   - {fileID: 673349413}
   - {fileID: 1587296169}
+  - {fileID: 1083191408}
