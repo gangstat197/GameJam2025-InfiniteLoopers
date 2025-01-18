@@ -20,6 +20,7 @@ public class BubbleUnit : MonoBehaviour
     public BubbleData bubbleData;
 
     protected Vector3 start;
+    protected Vector3 middle;
     protected Vector3 end;
     protected bool isMoving = false;
 
@@ -48,11 +49,12 @@ public class BubbleUnit : MonoBehaviour
     }
 
     // Still not understand 
-    public virtual void Spawn(Vector3 start, Vector3 end, float speed){
+    public virtual void Spawn(Vector3 start, Vector3 middle, Vector3 end, float speed){
         
         transform.position = start;
         
         this.start = start;
+        this.middle = middle;
         this.end = end;
 
         isMoving = true;
@@ -60,7 +62,7 @@ public class BubbleUnit : MonoBehaviour
     }
 
     // Make calculate, animation when bubbles be hitted 
-    public virtual void Hitted(float damage){
+    public virtual void Hitted(float damage, bool check = false){
         // Waiting for Luu's pointer finish to link
         
         Debug.Log($"damage = {damage}");
@@ -73,7 +75,10 @@ public class BubbleUnit : MonoBehaviour
         renderer.GetHurt(hp, hpMax);
 
         float counterDamage = damage - damage * (hpMax - hp) / hpMax;
-        Player.instance.PlayerHitted(counterDamage);
+        if(!check){
+            Player.instance.PlayerHitted(counterDamage);
+        }
+        
 
         if (hp <= 0) {
             Dead();
@@ -81,7 +86,7 @@ public class BubbleUnit : MonoBehaviour
     }
 
     // For moving only
-    protected virtual void Moving(Vector3 start, Vector3 end, float speed){
+    protected virtual void Moving(Vector3 start, Vector3 middle, Vector3 end, float speed){
 
         Vector3 direction = (end - start).normalized;
         
@@ -98,7 +103,7 @@ public class BubbleUnit : MonoBehaviour
 
     public virtual void Update(){
         if(isMoving){
-            Moving(start, end, 2f);
+            Moving(start, middle, end, 2f);
         }
 
         if (hp <= 0){
@@ -109,29 +114,29 @@ public class BubbleUnit : MonoBehaviour
 
 
     // Chance get item but 100% have rewardpoints 
-public virtual void Dead()
-{
-    float randomValue = UnityEngine.Random.Range(0f, 100f);
+    public virtual void Dead()
+    {
+        float randomValue = UnityEngine.Random.Range(0f, 100f);
 
 
-    for(int i = 0; i < rewardpoints; i++){
-            if (randomValue - 100f <= 0f)
-            {
-                GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
+        for(int i = 0; i < rewardpoints; i++){
+                if (randomValue - 100f <= 0f)
+                {
+                    GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
 
-                float dropForce = 30f;
-                Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+                    float dropForce = 30f;
+                    Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
 
-                Rigidbody2D lootRb = lootItem.GetComponent<Rigidbody2D>();
-                lootRb.AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+                    Rigidbody2D lootRb = lootItem.GetComponent<Rigidbody2D>();
+                    lootRb.AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
 
-                
-                lootRb.drag = 2f; 
-            }
+                    
+                    lootRb.drag = 2f; 
+                }
+        }
+
+
+        Destroy(gameObject);
     }
-
-
-    Destroy(gameObject);
-}
 
 }
