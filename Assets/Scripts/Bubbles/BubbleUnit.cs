@@ -23,15 +23,17 @@ public class BubbleUnit : MonoBehaviour
     protected Vector3 end;
     protected bool isMoving = false;
 
+    public GameObject audioManager;
+
 
     protected void SetValues(Sprite sprite, float hp, int rewardpoints){
         this.sprite = sprite;
 
         // increase by wave 
-        this.hp = hp; // this.hp = hp + %WaveManager.Instance.wave
+        this.hp = hp + hp * (WaveManager.Instance.wave + 10) / 100; // this.hp = hp + %WaveManager.Instance.wave
         this.hpMax = hp; // don't change
 
-        this.rewardpoints = rewardpoints; // this.rewardpoints = rewardpoints + %WaveManager.Instance.wave
+        this.rewardpoints = rewardpoints + rewardpoints * (WaveManager.Instance.wave + 10) / 100; // this.rewardpoints = rewardpoints + %WaveManager.Instance.wave
     }
 
     // load data
@@ -39,6 +41,7 @@ public class BubbleUnit : MonoBehaviour
 
        if(bubbleData != null){
             Debug.Log("Nah i would win");
+            this.audioManager = GameObject.Find("Manager").transform.Find("AudioManager").gameObject;
 
             // SetValues for each type of Bubble
             SetValues(
@@ -63,8 +66,13 @@ public class BubbleUnit : MonoBehaviour
     // Make calculate, animation when bubbles be hitted 
     public virtual void Hitted(float damage, bool check = false){
         // Waiting for Luu's pointer finish to link
+
         
-        Debug.Log($"damage = {damage}");
+        audioManager.GetComponent<AudioManager>().Play("Bubble pop 3");
+
+        
+        
+        // Debug.Log($"damage = {damage}");
         //renderer.GetHurt(hp, maxhp);
         hp -= damage;
         hp = math.max(hp, 0);
@@ -100,7 +108,8 @@ public class BubbleUnit : MonoBehaviour
 
     }
 
-    public virtual void Update(){
+    public virtual void Update(){        
+
         if(isMoving){
             Moving(start, end, 2f);
         }
@@ -142,11 +151,25 @@ public class BubbleUnit : MonoBehaviour
                 }
         }
 
+        randomValue = UnityEngine.Random.Range(0f, 100f);
+        if (randomValue - 12f <= 0f) {
+            GameObject lootItem = Instantiate(bubbleData.specialItem, transform.position, Quaternion.identity);
+
+            float dropForce = 30f;
+            Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+
+            Rigidbody2D lootRb = lootItem.GetComponent<Rigidbody2D>();
+            lootRb.AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+
+            
+            lootRb.drag = 2f; 
+        }
+
         Transform firstChild = transform.GetChild(0);
         BubbleRenderer renderer = firstChild.GetComponent<BubbleRenderer>();
         renderer.animator.Play("Death1");
 
-        
+        audioManager.GetComponent<AudioManager>().Play("Bubble pop 2");
     }
 
 }

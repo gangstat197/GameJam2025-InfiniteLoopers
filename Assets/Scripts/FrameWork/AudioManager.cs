@@ -29,6 +29,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    void Start(){
+
+        this.Play("Background music");
+        
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -19,6 +19,11 @@ public class PlayerAttack : MonoBehaviour
 
     private float attackRange;
 
+
+    private float lastUntiTime;
+    public List<GameObject> collectableItems;
+    ItemUnit item;
+
     public void Start() {
         rangeIndicator.sortingOrder = 10;
         rangeIndicator.transform.position = new UnityEngine.Vector3(rangeIndicator.transform.position.x, rangeIndicator.transform.position.y, -1);
@@ -127,4 +132,9 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(mousePosition, new UnityEngine.Vector3(attackRange, attackRange, 0));
     }
+
+
+    // PLAYER SPECIAL ATTACK
+
+
 }

@@ -82,7 +82,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  hp: 0
+  hpMax: 0
   bubbleData: {fileID: 11400000, guid: f77e0e00750d5254bb0a25cfaa750c89, type: 2}
+  audioManager: {fileID: 8622338264326562277, guid: 9bcbdf8fd42a16c4886e076578ebc7dd, type: 3}
 --- !u!1001 &20682265423449027
 PrefabInstance:
   m_ObjectHideFlags: 0
