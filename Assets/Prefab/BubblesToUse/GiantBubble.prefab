@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.6086705, y: 1.620717, z: 0.735056}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1348819134196027940}
@@ -82,6 +82,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  hp: 0
+  hpMax: 0
   bubbleData: {fileID: 11400000, guid: 8d3289611aac944438915a318ea3cbb9, type: 2}
   BubbleUnitPrefab: {fileID: 1084242526580923347, guid: 3581c784b170d8045822d146e852c548, type: 3}
 --- !u!1001 &2813192418696889316
