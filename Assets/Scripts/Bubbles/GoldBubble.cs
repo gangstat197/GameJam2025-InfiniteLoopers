@@ -8,7 +8,7 @@ public class GoldBubble : BubbleUnit
 
     protected override void Moving(Vector3 start, Vector3 end, float speed){
         
-        base.Moving(start, end, speed * 2);
+        base.Moving(start, end, speed * 3);
 
     }
 

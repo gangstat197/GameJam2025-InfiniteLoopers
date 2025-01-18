@@ -23,8 +23,8 @@ public class WaveManager: MonoBehaviour
     public Transform[] endPoints;   
 
     // Time spawn each wave 
-    public float spawnInterval = 2f; 
-    public float Speed = 3f;  
+    public float spawnInterval = 1f; 
+    public float Speed = 2f;  
 
     private float timer;
 
