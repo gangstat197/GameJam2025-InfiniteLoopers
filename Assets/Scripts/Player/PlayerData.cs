@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Player Setting", menuName = "Setting")]
 public class PlayerData : ScriptableObject
 {
-    float playerHealth;
-    float playerArmor;
+    public float playerHealth;
+    public float playerArmor;
 
-    float playerAttackRange;
-    float playerDamage;
-    float playerCritRate;
+    public float playerAttackRange;
+    public float playerDamage;
+    public float playerCritRate;
 }

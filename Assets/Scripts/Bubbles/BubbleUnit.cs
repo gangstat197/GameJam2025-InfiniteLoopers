@@ -64,7 +64,7 @@ public class BubbleUnit : MonoBehaviour
     }
 
     // Make calculate, animation when bubbles be hitted 
-    protected virtual void Hitted(){
+    public virtual void Hitted(float damage){
         // Waiting for Luu's pointer finish to link
 
 
