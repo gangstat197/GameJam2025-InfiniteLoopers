@@ -13,7 +13,7 @@ public class BubbleUnit : MonoBehaviour
     protected Animator HitAnimator;
     protected Animator DeadAnimator;
 
-    protected float hp;
+    protected float hp; // hp thực tế 
     protected float damage;
     protected float rewardpoints;
 
@@ -29,7 +29,9 @@ public class BubbleUnit : MonoBehaviour
         this.IdleAnimator = IdleAnimator;
         this.HitAnimator = HitAnimator;
         this.DeadAnimator = DeadAnimator;
-        this.hp = hp;
+
+        // increase by wave 
+        this.hp = hp; // this.hp = hp + %WaveManager.wave
         this.damage = damage;
         this.rewardpoints = rewardpoints;
     }

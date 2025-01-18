@@ -3,6 +3,10 @@ using UnityEngine;
 public class WaveManager: MonoBehaviour
 {
 
+    protected static WaveManager instance;
+    public static WaveManager Instance{get => instance;}
+    public int wave = 1;
+
     // random ra monster mỗi lần
     public GameObject bubblePrefab; 
     public Transform[] spawnPoints;  
@@ -13,6 +17,12 @@ public class WaveManager: MonoBehaviour
     public float Speed = 3f;  
 
     private float timer;
+
+    protected void Awake(){
+    
+        if (instance == null){instance = this;}
+          
+    }
 
     void Update()
     {
