@@ -77,6 +77,10 @@ public class BubbleUnit : MonoBehaviour
         //renderer.GetHurt(hp, maxhp);
         hp -= damage;
         hp = math.max(hp, 0);
+        Transform firstChild = transform.GetChild(0);
+        BubbleRenderer renderer = firstChild.GetComponent<BubbleRenderer>();
+
+        renderer.GetHurt(hp, hpMax);
 
         float counterDamage = damage - damage * (hpMax - hp) / hpMax;
         Player.instance.PlayerHitted(counterDamage);
