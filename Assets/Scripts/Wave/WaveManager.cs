@@ -9,6 +9,8 @@ public class WaveManager: MonoBehaviour
     protected static WaveManager instance;
     public static WaveManager Instance{get => instance;}
     public int wave;
+    public int waveMax;
+
     public int curBubbles;
 
     // random ra monster mỗi lần
@@ -65,6 +67,8 @@ public class WaveManager: MonoBehaviour
 
             if(curBubbles == 0){
                 wave++;
+
+                waveMax = Mathf.Max(waveMax, wave);
                 curBubbles = 20 + 20*wave/10;
             }
             
@@ -84,6 +88,8 @@ public class WaveManager: MonoBehaviour
 
             if(curBubbles == 0){
                 wave++;
+
+                waveMax = Mathf.Max(waveMax, wave);
                 curBubbles = 20 + 20*wave/10;
             }
         }
@@ -104,6 +110,8 @@ public class WaveManager: MonoBehaviour
 
             if(curBubbles == 0){
                 wave++;
+
+                waveMax = Mathf.Max(waveMax, wave);
                 curBubbles = 20 + 20*wave/10;
             }
 
