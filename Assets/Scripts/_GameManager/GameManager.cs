@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    private void AddScore(int scoreIndex, int val) {
+    public void AddScore(int scoreIndex, int val) {
+        Debug.Log("Hey Hey");
         points[scoreIndex] += val;
     }
 

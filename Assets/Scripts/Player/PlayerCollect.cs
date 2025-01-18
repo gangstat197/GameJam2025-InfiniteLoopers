@@ -23,6 +23,8 @@ public class PlayerCollect : MonoBehaviour
 
             // If item meets 
             if (Vector3.Distance(transform.position, other.transform.position) < 0.1f) {
+                ItemUnit itemUnit = other.gameObject.GetComponent<ItemUnit>();
+                if (itemUnit != null) GameManager.instance.AddScore(itemUnit.itemIndex, 1);
                 Destroy(other.gameObject);
             }
         }

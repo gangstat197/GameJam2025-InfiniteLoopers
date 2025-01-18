@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8544109308287004090}
   - component: {fileID: 8689838670302191059}
   - component: {fileID: 3642348643432917997}
+  - component: {fileID: 8441285295908355482}
   - component: {fileID: 7767277265901395324}
   m_Layer: 0
   m_Name: Point
@@ -113,6 +114,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8441285295908355482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950537693134514832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2cb296a28fe7c4fa9f7b9fd366ec92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 0c36d85c4df92c548a2b297c9aef6d8b, type: 2}
+  itemSprite: {fileID: 0}
+  itemName: 
+  itemIndex: 0
 --- !u!58 &7767277265901395324
 CircleCollider2D:
   m_ObjectHideFlags: 0
