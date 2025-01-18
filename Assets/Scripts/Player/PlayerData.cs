@@ -11,4 +11,6 @@ public class PlayerData : ScriptableObject
     public float playerAttackRange;
     public float playerDamage;
     public float playerCritRate;
+
+    public float playerSpeed;
 }

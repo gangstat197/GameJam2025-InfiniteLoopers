@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class BubbleUnit : MonoBehaviour
 {
@@ -70,9 +72,18 @@ public class BubbleUnit : MonoBehaviour
     // Make calculate, animation when bubbles be hitted 
     public virtual void Hitted(float damage){
         // Waiting for Luu's pointer finish to link
+        
 
         //renderer.GetHurt(hp, maxhp);
+        hp -= damage;
+        hp = math.max(hp, 0);
 
+        float counterDamage = damage - damage * (hpMax - hp) / hpMax;
+        Player.instance.PlayerHitted(counterDamage);
+
+        if (hp <= 0) {
+            Dead();
+        }
     }
 
     // For moving only
@@ -113,14 +124,14 @@ public class BubbleUnit : MonoBehaviour
         */
 
 
-        float randomValue = Random.Range(0f, 100f);
+        float randomValue = UnityEngine.Random.Range(0f, 100f);
 
         if(randomValue - 10f <= 0){
             
             GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
 
             float dropForce = 300f;
-            Vector2 dropDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
             lootItem.GetComponent<Rigidbody2D>().AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
         }
 
