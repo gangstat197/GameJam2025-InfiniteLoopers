@@ -23,7 +23,7 @@ public class BubbleRenderer : MonoBehaviour
     void Update(){
         if (isTesting){
             if (Input.GetMouseButtonDown(0)){
-                GetHurt(5, 10);
+                
             }
             if (isHurt){
                 
@@ -39,7 +39,15 @@ public class BubbleRenderer : MonoBehaviour
         animator.Play("Hurt");
         Debug.Log("GEtHUrt");
     }
+    // public void GetDestroy(){
+    //     GameObject tr = Instantiate(this.gameObject, transform);
+    //     BubbleRenderer br = tr.GetComponent<BubbleRenderer>();
+    //     br.enabled = false;
+    //     br.animator.Play("Death1");
+    //     Destroy(this.gameObject);
+    // }
     public void ChangeToIdle(){
         animator.Play("Idle");
+        //animator.Play("Death");
     }
 }
