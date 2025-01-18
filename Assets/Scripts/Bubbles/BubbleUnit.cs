@@ -11,15 +11,11 @@ public class BubbleUnit : MonoBehaviour
     [SerializeField]
     protected Sprite sprite;
 
-    protected Animator IdleAnimator;
-    protected Animator HitAnimator;
-    protected Animator DeadAnimator;
 
     public float hp; // hp thực tế 
     public float hpMax;
 
-    protected float damage;
-    protected float rewardpoints;
+    protected int rewardpoints;
 
     public BubbleData bubbleData;
 
@@ -28,17 +24,13 @@ public class BubbleUnit : MonoBehaviour
     protected bool isMoving = false;
 
 
-    protected void SetValues(Sprite sprite, Animator IdleAnimator, Animator HitAnimator, Animator DeadAnimator, float hp, float damage, float rewardpoints){
+    protected void SetValues(Sprite sprite, float hp, int rewardpoints){
         this.sprite = sprite;
-        this.IdleAnimator = IdleAnimator;
-        this.HitAnimator = HitAnimator;
-        this.DeadAnimator = DeadAnimator;
 
         // increase by wave 
         this.hp = hp; // this.hp = hp + %WaveManager.Instance.wave
         this.hpMax = hp; // don't change
 
-        this.damage = damage; // this.damage = damage + %WaveManager.Instance.wave
         this.rewardpoints = rewardpoints; // this.rewardpoints = rewardpoints + %WaveManager.Instance.wave
     }
 
@@ -50,9 +42,7 @@ public class BubbleUnit : MonoBehaviour
 
             // SetValues for each type of Bubble
             SetValues(
-                bubbleData.sprite, bubbleData.IdleAnimator, bubbleData.HitAnimator, 
-                bubbleData.DeadAnimator, bubbleData.hp, bubbleData.damage, bubbleData.rewardpoints
-            );
+                bubbleData.sprite, bubbleData.hp, bubbleData.rewardpoints);
        }
 
     }
@@ -123,19 +113,23 @@ public virtual void Dead()
 {
     float randomValue = UnityEngine.Random.Range(0f, 100f);
 
-    if (randomValue - 100f <= 0f)
-    {
-        GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
 
-        float dropForce = 30f;
-        Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+    for(int i = 0; i < rewardpoints; i++){
+            if (randomValue - 100f <= 0f)
+            {
+                GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
 
-        Rigidbody2D lootRb = lootItem.GetComponent<Rigidbody2D>();
-        lootRb.AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+                float dropForce = 30f;
+                Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
 
-        
-        lootRb.drag = 2f; 
+                Rigidbody2D lootRb = lootItem.GetComponent<Rigidbody2D>();
+                lootRb.AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+
+                
+                lootRb.drag = 2f; 
+            }
     }
+
 
     Destroy(gameObject);
 }
