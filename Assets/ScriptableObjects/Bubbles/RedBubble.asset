@@ -16,4 +16,4 @@ MonoBehaviour:
   hp: 30
   rewardpoints: 6
   dropItem: {fileID: 6950537693134514832, guid: 785f0a900a93151448a1ada31847361d, type: 3}
-  specialItem: {fileID: 8662880541815804322, guid: ed518b8c4d51a1b429daabd0558ab566, type: 3}
+  specialItem: {fileID: 7678681231865854376, guid: 6f9ae3bd4e633554eb40076177f9a5ab, type: 3}
