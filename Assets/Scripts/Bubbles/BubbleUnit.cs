@@ -17,7 +17,14 @@ public class BubbleUnit : MonoBehaviour
     protected float damage;
     protected float rewardpoints;
 
-    void SetValues(Sprite sprite, Animator IdleAnimator, Animator HitAnimator, Animator DeadAnimator, float hp, float damage, float rewardpoints){
+    public BubbleData bubbleData;
+
+    protected Vector3 start;
+    protected Vector3 end;
+    protected bool isMoving = false;
+
+
+    protected void SetValues(Sprite sprite, Animator IdleAnimator, Animator HitAnimator, Animator DeadAnimator, float hp, float damage, float rewardpoints){
         this.sprite = sprite;
         this.IdleAnimator = IdleAnimator;
         this.HitAnimator = HitAnimator;
@@ -28,8 +35,7 @@ public class BubbleUnit : MonoBehaviour
     }
 
     // load data
-    public void Start(){
-       BubbleData bubbleData = Resources.Load<BubbleData>("BubbleType/BubbleUnit");
+    public virtual void Start(){
 
        if(bubbleData != null){
             Debug.Log("Nah i would win");
@@ -41,12 +47,17 @@ public class BubbleUnit : MonoBehaviour
             );
        }
 
-
     }
 
     // Still not understand 
-    protected virtual void Spawn(){
+    public virtual void Spawn(Vector3 start, Vector3 end, float speed){
+        
+        transform.position = start;
+        
+        this.start = start;
+        this.end = end;
 
+        isMoving = true;
 
     }
 
@@ -60,28 +71,31 @@ public class BubbleUnit : MonoBehaviour
     }
 
     // For moving only
-    protected virtual void Moving(){
+    protected virtual void Moving(Vector3 start, Vector3 end, float speed){
+
+        Vector3 direction = (end - start).normalized;
         
 
+        transform.position += direction * speed * Time.deltaTime;
+
+        if (Vector3.Distance(transform.position, end) < 0.1f){
+                
+            Destroy(gameObject);
+                
+        }
 
     }
+
+    void Update(){
+        if(isMoving){
+            Moving(start, end, 2f);
+        }
+
+    }
+
 
     // Chance get item but 100% have rewardpoints 
     public virtual Item Dead(){
         return null;
     }
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
 }
