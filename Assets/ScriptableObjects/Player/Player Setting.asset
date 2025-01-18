@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5578505c02114944785a760b42c27114, type: 3}
   m_Name: Player Setting
   m_EditorClassIdentifier: 
-  playerHealth: 0
+  playerHealth: 100
   playerArmor: 0
-  playerAttackRange: 0
-  playerDamage: 0
-  playerCritRate: 0
+  playerAttackRange: 4
+  playerDamage: 5
+  playerCritRate: 5

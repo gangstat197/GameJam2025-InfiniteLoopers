@@ -24,6 +24,11 @@ public class Player : MonoBehaviour
         playerDamage = playerData.playerArmor;
         playerCritRate = playerData.playerCritRate;
     }
+
+    void Awake() {
+        instance = this;
+    }
+
     void Start()
     {
         SetValue(playerData);
