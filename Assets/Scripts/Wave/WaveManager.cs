@@ -28,6 +28,7 @@ public class WaveManager: MonoBehaviour
     {
         timer += Time.deltaTime;
 
+        // Game State
         if (timer >= spawnInterval)
         {
             SpawnMonster();

@@ -31,9 +31,9 @@ public class BubbleUnit : MonoBehaviour
         this.DeadAnimator = DeadAnimator;
 
         // increase by wave 
-        this.hp = hp; // this.hp = hp + %WaveManager.wave
-        this.damage = damage;
-        this.rewardpoints = rewardpoints;
+        this.hp = hp; // this.hp = hp + %WaveManager.Instance.wave
+        this.damage = damage; // this.damage = damage + %WaveManager.Instance.wave
+        this.rewardpoints = rewardpoints; // this.rewardpoints = rewardpoints + %WaveManager.Instance.wave
     }
 
     // load data
