@@ -119,26 +119,25 @@ public class BubbleUnit : MonoBehaviour
 
 
     // Chance get item but 100% have rewardpoints 
-    public virtual void Dead(){
+public virtual void Dead()
+{
+    float randomValue = UnityEngine.Random.Range(0f, 100f);
+
+    if (randomValue - 100f <= 0f)
+    {
+        GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
+
+        float dropForce = 30f;
+        Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+
+        Rigidbody2D lootRb = lootItem.GetComponent<Rigidbody2D>();
+        lootRb.AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+
         
-        /*
-
-            Add increase reward here
-
-        */
-
-
-        float randomValue = UnityEngine.Random.Range(0f, 100f);
-
-        if(randomValue - 100f <= 0f){
-            
-            GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
-
-            float dropForce = 5f;
-            Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
-            lootItem.GetComponent<Rigidbody2D>().AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
-        }
-
-        Destroy(gameObject);
+        lootRb.drag = 2f; 
     }
+
+    Destroy(gameObject);
+}
+
 }
