@@ -591,6 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave: 1
+  waveMax: 0
   curBubbles: 0
   bubbles:
   - {fileID: 3272037628744958467, guid: 755adb25a1d391a45bde35c8294db4b6, type: 3}
