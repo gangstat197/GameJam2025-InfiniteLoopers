@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4070086955935666859}
   - component: {fileID: 4763301496206629418}
   - component: {fileID: 2392202719601195893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BubbleUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,6 +91,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4070086955935666859}
     m_Modifications:
+    - target: {fileID: 328116377985723272, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506997939544730958, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917548405591433525, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467986568381579114, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648625160142233439, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838184017480004601, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862017707399564716, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062271127585480039, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4797078163668903272, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5
@@ -131,6 +163,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5177740780652255541, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5973210792523004055, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
       propertyPath: isTesting
       value: 0
@@ -138,6 +174,30 @@ PrefabInstance:
     - target: {fileID: 6340737960450837739, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
       propertyPath: m_Name
       value: Bubble renderer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340737960450837739, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683743748851005871, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882823186231123019, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383351944117514178, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786192482193752828, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101190831199673618, guid: 0adbd13fad65139419e739a0bab39f00, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
