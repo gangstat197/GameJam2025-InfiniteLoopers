@@ -28,10 +28,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // void Start(){
+
+    //     this.Play("Background music");
+        
+    // }
+
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
     public void Play(string name){
         GameObject s = soundObjLst.Find(s => s.GetComponent<SoundCom>().soundName == name);

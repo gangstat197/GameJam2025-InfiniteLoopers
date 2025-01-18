@@ -23,6 +23,8 @@ public class BubbleUnit : MonoBehaviour
     protected Vector3 end;
     protected bool isMoving = false;
 
+    public GameObject audioManager;
+
 
     protected void SetValues(Sprite sprite, float hp, int rewardpoints){
         this.sprite = sprite;
@@ -63,8 +65,13 @@ public class BubbleUnit : MonoBehaviour
     // Make calculate, animation when bubbles be hitted 
     public virtual void Hitted(float damage, bool check = false){
         // Waiting for Luu's pointer finish to link
+
         
-        Debug.Log($"damage = {damage}");
+        audioManager.GetComponent<AudioManager>().Play("Bubble pop 3");
+
+        
+        
+        // Debug.Log($"damage = {damage}");
         //renderer.GetHurt(hp, maxhp);
         hp -= damage;
         hp = math.max(hp, 0);
@@ -100,7 +107,8 @@ public class BubbleUnit : MonoBehaviour
 
     }
 
-    public virtual void Update(){
+    public virtual void Update(){        
+
         if(isMoving){
             Moving(start, end, 2f);
         }
