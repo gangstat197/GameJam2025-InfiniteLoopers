@@ -13,7 +13,6 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        
         foreach(Sound s in sounds){
             GameObject soundObj = Instantiate(new GameObject(s.soundName), transform.position, transform.rotation, transform);
             soundObj.AddComponent<SoundCom>().soundName = s.soundName;
@@ -27,13 +26,16 @@ public class AudioManager : MonoBehaviour
             soundObjLst.Add(soundObj);
             
         }
+        Play("Background music");
+        GameManager.OnGameStateChanged += AudioManagerOnGameStateChanged;
     }
 
-    void Start(){
-
-        this.Play("Background music");
-        
+    void OnDestroy() {
+        GameManager.OnGameStateChanged -= AudioManagerOnGameStateChanged;
     }
+
+    private void AudioManagerOnGameStateChanged(GameState state) {
+    } 
 
     // Update is called once per frame
     void Update()
@@ -51,7 +53,7 @@ public class AudioManager : MonoBehaviour
         }
         else{
             Debug.Log("Enter");
-            GameObject soundObj = Instantiate(s, transform.position, transform.rotation);
+            GameObject soundObj = Instantiate(s, transform.position, transform.rotation, transform);
             soundObj.SetActive(true);
             soundObj.GetComponent<AudioSource>().Play();
         }

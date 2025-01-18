@@ -44,14 +44,27 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject); 
         }
+
+        GameManager.OnGameStateChanged += PlayerOnStateChanged;
+    }
+
+    private void OnDestroy() {
+        GameManager.OnGameStateChanged -= PlayerOnStateChanged;
     }
 
     void Start()
-    {
+    {   
         SetValue(playerData);
         isInvicible = false;
     }
-
+    
+    public void PlayerOnStateChanged(GameState newState) {
+        if (newState == GameState.PlayState) {
+            gameObject.SetActive(true);
+        } else {
+            gameObject.SetActive(false);
+        }
+    }
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
             playerAttackComponent.LightAttack(playerDamage, playerCritRate);
@@ -63,7 +76,7 @@ public class Player : MonoBehaviour
 
         // playerCurrentHealth -= Time.deltaTime * 0.2f * WaveManager.Instance.wave;
         if (!isInvicible) playerCurrentHealth -= Time.deltaTime;
-        if (playerCurrentHealth == 0) {
+        if (playerCurrentHealth <= 0) {
             Dead();
         }
 
