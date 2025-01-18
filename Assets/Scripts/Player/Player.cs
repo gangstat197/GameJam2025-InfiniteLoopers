@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour
     public float playerSpeed;
 
     public float playerCurrentHealth;
-
+    public TextMeshProUGUI pointCounts;
     public PlayerAttack playerAttackComponent;
     public HealthSystem healthSystem;
 
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
         }
 
         healthSystem.hitPoint = playerCurrentHealth;
+        pointCounts.text = GameManager.instance.points[0].ToString();
     }
 
 

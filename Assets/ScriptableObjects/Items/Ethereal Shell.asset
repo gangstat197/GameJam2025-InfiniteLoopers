@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIndex: 4
   itemName: Ethereal Shell
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: -6699076979697824190, guid: ef4006c747842b94a8b1d0ea06a643d8, type: 3}

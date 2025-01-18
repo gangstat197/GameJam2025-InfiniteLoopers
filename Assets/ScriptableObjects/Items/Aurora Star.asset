@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIndex: 2
   itemName: Aurora Star
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 1812791796796410547, guid: ef4006c747842b94a8b1d0ea06a643d8, type: 3}

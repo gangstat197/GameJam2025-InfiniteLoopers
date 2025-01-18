@@ -6,15 +6,34 @@ using UnityEngine;
 public class RedBubble : BubbleUnit
 {
     public override void Dead(){
-        float randomValue = Random.Range(0f, 100f);
+        float randomValue = UnityEngine.Random.Range(0f, 100f);
+        for(int i = 0; i < rewardpoints; i++){
+        if (randomValue - 100f <= 0f)
+                {
+                    GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
 
-        if(randomValue - 10f <= 0){
+                    float dropForce = 30f;
+                    Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+
+                    Rigidbody2D lootRb = lootItem.GetComponent<Rigidbody2D>();
+                    lootRb.AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+
+                    
+                    lootRb.drag = 2f; 
+                }
+        }
+        randomValue = UnityEngine.Random.Range(0f, 100f);
+        if (randomValue - 12f <= 0f) {
+            GameObject lootItem = Instantiate(bubbleData.specialItem, transform.position, Quaternion.identity);
+
+            float dropForce = 30f;
+            Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+
+            Rigidbody2D lootRb = lootItem.GetComponent<Rigidbody2D>();
+            lootRb.AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+
             
-            GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
-
-            float dropForce = 300f;
-            Vector2 dropDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-            lootItem.GetComponent<Rigidbody2D>().AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+            lootRb.drag = 2f; 
         }
 
         this.Explode();
