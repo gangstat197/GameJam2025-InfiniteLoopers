@@ -20,12 +20,8 @@ public class BubbleUnit : MonoBehaviour
     public BubbleData bubbleData;
 
     protected Vector3 start;
-    protected Vector3 middle;
     protected Vector3 end;
     protected bool isMoving = false;
-
-    private float t = 0f;
-    private int currentPhase = 0;
 
 
     protected void SetValues(Sprite sprite, float hp, int rewardpoints){
@@ -52,12 +48,12 @@ public class BubbleUnit : MonoBehaviour
     }
 
     // Still not understand 
-    public virtual void Spawn(Vector3 start, Vector3 middle, Vector3 end, float speed){
+    public virtual void Spawn(Vector3 start, Vector3 end, float speed){
         
         transform.position = start;
         
         this.start = start;
-        this.middle = middle;
+
         this.end = end;
 
         isMoving = true;
@@ -89,33 +85,24 @@ public class BubbleUnit : MonoBehaviour
     }
 
     // For moving only
-    protected virtual void Moving(Vector3 start, Vector3 middle, Vector3 end, float speed){
+    protected virtual void Moving(Vector3 start, Vector3 end, float speed){
 
-        t += speed * Time.deltaTime;
-
+        Vector3 direction = (end - start).normalized;
         
-        if (currentPhase == 0){
-            transform.position = Vector3.Lerp(start, middle, t);
 
-            if (t >= 1f){
-                t = 0f; 
-                currentPhase = 1; 
-            }
-        }
-        else if (currentPhase == 1) {
-            transform.position = Vector3.Lerp(middle, end, t);
+        transform.position += direction * speed * Time.deltaTime;
 
-            if (t >= 1f) {
-                t = 0f; 
-                Destroy(gameObject);
-            }
+        if (Vector3.Distance(transform.position, end) < 0.1f){
+                
+            Destroy(gameObject);
+                
         }
 
     }
 
     public virtual void Update(){
         if(isMoving){
-            Moving(start, middle, end, 2f);
+            Moving(start, end, 2f);
         }
 
         if (hp <= 0){

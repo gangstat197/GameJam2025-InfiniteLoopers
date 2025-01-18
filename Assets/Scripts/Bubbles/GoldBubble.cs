@@ -6,9 +6,9 @@ using UnityEngine;
 public class GoldBubble : BubbleUnit
 {
 
-    protected override void Moving(Vector3 start, Vector3 middle, Vector3 end, float speed){
+    protected override void Moving(Vector3 start, Vector3 end, float speed){
         
-        base.Moving(start, middle, end, speed * 3);
+        base.Moving(start, end, speed * 3);
 
     }
 
