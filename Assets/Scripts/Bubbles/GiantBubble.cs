@@ -10,14 +10,5 @@ public class GiantBubble : BubbleUnit
         return null;
     }
 
-    public override void Spawn(Vector3 start, Vector3 end, float speed){
-        // create more 4 bubble
-
-        
-
-
-    }
-
-
 
 }
