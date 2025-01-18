@@ -37,7 +37,7 @@ public class BubbleRenderer : MonoBehaviour
         currentPercent = ((maxhp - hp)/maxhp);
         typeBall.localScale = diff*currentPercent*v + initScale;
         animator.Play("Hurt");
-        Debug.Log("GEtHUrt");
+        Debug.Log("GetHurt");
     }
     public void ChangeToIdle(){
         animator.Play("Idle");
