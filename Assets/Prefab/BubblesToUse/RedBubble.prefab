@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red bubble renderer
       objectReference: {fileID: 0}
+    - target: {fileID: 2033471047647610281, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: isTesting
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

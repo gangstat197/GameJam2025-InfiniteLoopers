@@ -14,15 +14,21 @@ public class Player : MonoBehaviour
     public float playerAttackRange;
     public float playerDamage;
     public float playerCritRate;
+    public float playerSpeed;
+
+    public float playerCurrentHealth;
 
     public PlayerAttack playerAttackComponent;
+    public HealthSystem healthSystem;
 
     private void SetValue(PlayerData playerData) {
         playerHealth = playerData.playerHealth;
+        playerCurrentHealth = playerData.playerHealth;
         playerArmor = playerData.playerArmor;
         playerAttackRange = playerData.playerAttackRange;
         playerDamage = playerData.playerArmor;
         playerCritRate = playerData.playerCritRate;
+        playerSpeed = playerData.playerSpeed;
     }
 
     void Awake() {
@@ -38,18 +44,26 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             playerAttackComponent.LightAttack(playerDamage, playerCritRate);
         }
+
+        // playerCurrentHealth -= Time.deltaTime * 0.2f * WaveManager.Instance.wave;
+        playerCurrentHealth -= Time.deltaTime * 0.2f;
+        if (playerCurrentHealth == 0) {
+            Dead();
+        }
+
+        healthSystem.hitPoint = playerCurrentHealth;
     }
 
 
-    void PlayerHitted(float counterDamage) {
-        
+    public void PlayerHitted(float counterDamage) {
+        playerCurrentHealth -= counterDamage - playerArmor;
     }
 
-    void Dead() {
-
+    public void Dead() {
+        GameManager.instance.UpdateGameState(GameState.UpdateState);
     }
 
-    void Special() {
+    public void Special() {
 
     }
 }
