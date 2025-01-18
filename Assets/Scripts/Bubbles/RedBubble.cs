@@ -38,6 +38,8 @@ public class RedBubble : BubbleUnit
 
         this.Explode();
 
+        audioManager.GetComponent<AudioManager>().Play("Bubble pop 2");
+
     }
 
     private void Explode(){

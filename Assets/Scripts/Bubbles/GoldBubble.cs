@@ -26,6 +26,8 @@ public class GoldBubble : BubbleUnit
         BubbleRenderer renderer = firstChild.GetComponent<BubbleRenderer>();
         renderer.animator.Play("Death1");
 
+        audioManager.GetComponent<AudioManager>().Play("Bubble pop 2");
+
     }
 
 

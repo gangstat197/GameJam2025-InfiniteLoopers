@@ -30,10 +30,10 @@ public class BubbleUnit : MonoBehaviour
         this.sprite = sprite;
 
         // increase by wave 
-        this.hp = hp; // this.hp = hp + %WaveManager.Instance.wave
+        this.hp = hp + hp * (WaveManager.Instance.wave + 10) / 100; // this.hp = hp + %WaveManager.Instance.wave
         this.hpMax = hp; // don't change
 
-        this.rewardpoints = rewardpoints; // this.rewardpoints = rewardpoints + %WaveManager.Instance.wave
+        this.rewardpoints = rewardpoints + rewardpoints * (WaveManager.Instance.wave + 10) / 100; // this.rewardpoints = rewardpoints + %WaveManager.Instance.wave
     }
 
     // load data
@@ -41,6 +41,7 @@ public class BubbleUnit : MonoBehaviour
 
        if(bubbleData != null){
             Debug.Log("Nah i would win");
+            this.audioManager = GameObject.Find("Manager").transform.Find("AudioManager").gameObject;
 
             // SetValues for each type of Bubble
             SetValues(
@@ -168,7 +169,7 @@ public class BubbleUnit : MonoBehaviour
         BubbleRenderer renderer = firstChild.GetComponent<BubbleRenderer>();
         renderer.animator.Play("Death1");
 
-        
+        audioManager.GetComponent<AudioManager>().Play("Bubble pop 2");
     }
 
 }
