@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2276522525756320080}
   - component: {fileID: 5421079834355797415}
   - component: {fileID: 22520229322444980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RedBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,6 +91,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2276522525756320080}
     m_Modifications:
+    - target: {fileID: 650290191094506507, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 887184498738567254, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5
@@ -131,13 +135,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1250311356854296949, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304954492555314321, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1811466443281068501, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
       propertyPath: m_Name
       value: Red bubble renderer
       objectReference: {fileID: 0}
+    - target: {fileID: 1811466443281068501, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2033471047647610281, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
       propertyPath: isTesting
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509437903855615938, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930616079508001532, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499473254819422252, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355053383589598902, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6071358798393236491, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499998357694451824, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596061041765838994, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619542905242848967, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646129451742241377, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826482097763025492, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556094528396845145, guid: 4978b3cf3b73521419b5824eb010d89f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

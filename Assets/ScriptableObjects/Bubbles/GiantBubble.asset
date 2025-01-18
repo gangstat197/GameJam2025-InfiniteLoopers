@@ -19,4 +19,4 @@ MonoBehaviour:
   hp: 10
   damage: 0
   rewardpoints: 0
-  dropItem: {fileID: 394318408446972760, guid: f533e9cb340d12644a6c992e5d77b42a, type: 3}
+  dropItem: {fileID: 6950537693134514832, guid: 785f0a900a93151448a1ada31847361d, type: 3}
