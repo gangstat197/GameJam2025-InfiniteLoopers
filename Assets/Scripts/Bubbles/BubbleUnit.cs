@@ -14,6 +14,8 @@ public class BubbleUnit : MonoBehaviour
     protected Animator DeadAnimator;
 
     protected float hp; // hp thực tế 
+    protected float hpMax;
+
     protected float damage;
     protected float rewardpoints;
 
@@ -32,6 +34,8 @@ public class BubbleUnit : MonoBehaviour
 
         // increase by wave 
         this.hp = hp; // this.hp = hp + %WaveManager.Instance.wave
+        this.hpMax = hp; // don't change
+
         this.damage = damage; // this.damage = damage + %WaveManager.Instance.wave
         this.rewardpoints = rewardpoints; // this.rewardpoints = rewardpoints + %WaveManager.Instance.wave
     }
@@ -88,7 +92,7 @@ public class BubbleUnit : MonoBehaviour
 
     }
 
-    void Update(){
+    public virtual void Update(){
         if(isMoving){
             Moving(start, end, 2f);
         }
