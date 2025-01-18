@@ -63,7 +63,7 @@ public class WaveManager: MonoBehaviour
         if(wave <= 2){
             float randomValue = Random.Range(0f, 100f);
 
-            if(randomValue - 1f <= 0){
+            if(randomValue - 5f <= 0){
                 process(goldBubblePrefab, emptyVector);
             }
 
@@ -83,7 +83,7 @@ public class WaveManager: MonoBehaviour
         else if(wave <= 4){
             float randomValue = Random.Range(0f, 100f);
 
-            if(randomValue - 1f <= 0){
+            if(randomValue - 5f <= 0){
                 process(goldBubblePrefab, emptyVector);
             }
 
@@ -104,7 +104,7 @@ public class WaveManager: MonoBehaviour
 
             float randomValue = Random.Range(0f, 100f);
 
-            if(randomValue - 1f <= 0){
+            if(randomValue - 5f <= 0){
                 process(goldBubblePrefab, emptyVector);
             }
 

@@ -51,6 +51,8 @@ public class GiantBubble : BubbleUnit
         Transform firstChild = transform.GetChild(0);
         BubbleRenderer renderer = firstChild.GetComponent<BubbleRenderer>();
         renderer.animator.Play("Death1");
+
+        audioManager.GetComponent<AudioManager>().Play("Bubble pop 2");
     }
 
     public override void Update(){

@@ -6,7 +6,8 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    
+    public bool isTesting = false;
+    public string calledSound;
     public Sound[] sounds;
     [HideInInspector] public List<GameObject> soundObjLst;
     // Start is called before the first frame update
@@ -28,10 +29,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    void Start(){
+
+        this.Play("Background music");
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        // if (isTesting && Input.GetMouseButtonDown(0)){
+        //     Play(calledSound);
+        // }
     }
     public void Play(string name){
         GameObject s = soundObjLst.Find(s => s.GetComponent<SoundCom>().soundName == name);
@@ -41,6 +50,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         else{
+            Debug.Log("Enter");
             GameObject soundObj = Instantiate(s, transform.position, transform.rotation);
             soundObj.SetActive(true);
             soundObj.GetComponent<AudioSource>().Play();
