@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Media;
 using UnityEngine;
@@ -19,18 +20,23 @@ public class PlayerAttack : MonoBehaviour
 
     private float attackRange;
 
-
     private float lastUntiTime;
-    public List<GameObject> collectableItems;
-    ItemUnit item;
+    public List<CollectableItems> specialItems;
+
+    public int skillChosenIndex;
+
+    public TextMeshProUGUI specialText;
+    public SpriteRenderer specialSpriteRenderer;
 
     public void Start() {
         rangeIndicator.sortingOrder = 10;
         rangeIndicator.transform.position = new UnityEngine.Vector3(rangeIndicator.transform.position.x, rangeIndicator.transform.position.y, -1);
         rangeIndicator.color = crossHairColor;
         lastTimeShoot = -10;
+        lastUntiTime = -100;
 
         delayBarFirstScale = delayBar.transform.localScale;
+        SetSpecial();
     }
 
     public void Update() {
@@ -136,5 +142,42 @@ public class PlayerAttack : MonoBehaviour
 
     // PLAYER SPECIAL ATTACK
 
+    public void SetSpecial() {
+        specialSpriteRenderer.sprite = specialItems[skillChosenIndex].itemSprite;
+        specialText.text = specialItems[skillChosenIndex].itemName;
+    }
 
+    public void Special() {
+        if (Time.time - lastUntiTime < specialItems[skillChosenIndex].specialCoolDown) return; 
+        lastUntiTime = Time.time;
+
+        if (skillChosenIndex == 1) {
+            BoneShard();
+        } else 
+        if (skillChosenIndex == 2) {
+            Starfish();
+        } else 
+        if (skillChosenIndex == 3) {
+            Claw();
+        } else 
+        if (skillChosenIndex == 4) {
+            Shell();
+        }
+    }
+
+    public void BoneShard() {
+
+    }
+
+    public void Claw() {
+
+    }
+
+    public void Shell() {
+
+    }
+
+    public void Starfish() {
+
+    }
 }
