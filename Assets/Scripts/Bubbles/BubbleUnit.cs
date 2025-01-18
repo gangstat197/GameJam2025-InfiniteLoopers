@@ -24,6 +24,9 @@ public class BubbleUnit : MonoBehaviour
     protected Vector3 end;
     protected bool isMoving = false;
 
+    private float t = 0f;
+    private int currentPhase = 0;
+
 
     protected void SetValues(Sprite sprite, float hp, int rewardpoints){
         this.sprite = sprite;
@@ -88,15 +91,24 @@ public class BubbleUnit : MonoBehaviour
     // For moving only
     protected virtual void Moving(Vector3 start, Vector3 middle, Vector3 end, float speed){
 
-        Vector3 direction = (end - start).normalized;
+        t += speed * Time.deltaTime;
+
         
+        if (currentPhase == 0){
+            transform.position = Vector3.Lerp(start, middle, t);
 
-        transform.position += direction * speed * Time.deltaTime;
+            if (t >= 1f){
+                t = 0f; 
+                currentPhase = 1; 
+            }
+        }
+        else if (currentPhase == 1) {
+            transform.position = Vector3.Lerp(middle, end, t);
 
-        if (Vector3.Distance(transform.position, end) < 0.1f){
-                
-            Destroy(gameObject);
-                
+            if (t >= 1f) {
+                t = 0f; 
+                Destroy(gameObject);
+            }
         }
 
     }
