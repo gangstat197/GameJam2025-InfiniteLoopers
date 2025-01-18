@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yellow Bubble renderer
       objectReference: {fileID: 0}
+    - target: {fileID: 3325201848160576071, guid: 075164d23267e7e45be2b38c5ab8918b, type: 3}
+      propertyPath: isTesting
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4490867057630199736, guid: 075164d23267e7e45be2b38c5ab8918b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.01
