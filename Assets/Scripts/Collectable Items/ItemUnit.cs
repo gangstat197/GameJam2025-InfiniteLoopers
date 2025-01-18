@@ -11,6 +11,7 @@ public class ItemUnit : MonoBehaviour
     public string itemName;
     public int itemIndex;
     public float coolDown;
+    public float duration;
     public ColorParameter vignetteColor;
     void Awake() {   
         SetValue(itemData);
@@ -22,5 +23,6 @@ public class ItemUnit : MonoBehaviour
         itemIndex = data.itemIndex;
         coolDown = data.specialCoolDown;
         vignetteColor = data.vignetteColor;
+        duration = data.specialDuration;
     }
 }

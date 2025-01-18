@@ -10,5 +10,6 @@ public class CollectableItems : ScriptableObject
     public string itemName;
     public Sprite itemSprite;
     public float specialCoolDown;
+    public float specialDuration;
     public ColorParameter vignetteColor;
 }

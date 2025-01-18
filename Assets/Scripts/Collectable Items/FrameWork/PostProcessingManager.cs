@@ -14,16 +14,23 @@ public class PostProcessingManager : MonoBehaviour
         instance = this;
     }
 
-    Vignette vignette;
+    private Vignette vignette;
     public ColorParameter baseVignetteColor;
     void Start() {
         postProcessVolume = GetComponent<PostProcessVolume>();
-        vignette = postProcessVolume.GetComponent<Vignette>();
     }
 
     public void ChangeToNewVig(ColorParameter newColor) {
-        vignette.color = newColor;
+        if (postProcessVolume.profile.TryGetSettings(out vignette))
+        {
+            vignette.color = newColor;
+        }
     }
 
-
+    public void ReturnToNormal() {
+        if (postProcessVolume.profile.TryGetSettings(out vignette))
+        {
+            vignette.color = baseVignetteColor;
+        }
+    }
 }
