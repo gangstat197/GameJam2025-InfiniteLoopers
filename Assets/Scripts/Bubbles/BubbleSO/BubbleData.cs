@@ -8,4 +8,6 @@ public class BubbleData : ScriptableObject
     public int rewardpoints;
 
     public GameObject dropItem;
+
+    public GameObject specialItem;
 }
