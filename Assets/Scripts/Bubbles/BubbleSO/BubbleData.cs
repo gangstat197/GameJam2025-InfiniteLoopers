@@ -12,4 +12,6 @@ public class BubbleData : ScriptableObject
     public float hp;
     public float damage;
     public float rewardpoints;
+
+    public GameObject dropItem;
 }

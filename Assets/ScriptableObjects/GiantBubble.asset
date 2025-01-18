@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41e7ceeab28120b4b8ad72176707b368, type: 3}
-  m_Name: BubbleUnit
+  m_Name: GiantBubble
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   IdleAnimator: {fileID: 0}
@@ -19,4 +19,4 @@ MonoBehaviour:
   hp: 10
   damage: 0
   rewardpoints: 0
-  dropItem: {fileID: 0}
+  dropItem: {fileID: 394318408446972760, guid: f533e9cb340d12644a6c992e5d77b42a, type: 3}

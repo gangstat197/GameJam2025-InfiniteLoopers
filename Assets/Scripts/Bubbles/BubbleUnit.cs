@@ -97,11 +97,34 @@ public class BubbleUnit : MonoBehaviour
             Moving(start, end, 2f);
         }
 
+        if(hp <= 0){
+            Dead();
+        }
+
     }
 
 
     // Chance get item but 100% have rewardpoints 
-    public virtual Item Dead(){
-        return null;
+    public virtual void Dead(){
+        
+        /*
+
+            Add increase reward here
+
+        */
+
+
+        float randomValue = Random.Range(0f, 100f);
+
+        if(randomValue - 10f <= 0){
+            
+            GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
+
+            float dropForce = 300f;
+            Vector2 dropDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            lootItem.GetComponent<Rigidbody2D>().AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+        }
+
+        Destroy(gameObject);
     }
 }

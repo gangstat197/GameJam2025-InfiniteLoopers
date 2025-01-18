@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class RedBubble : BubbleUnit
 {
-    public override Item Dead(){
-        return null;
+    public override void Dead(){
+        base.Dead();
+
+        this.Explode();
+
     }
 
     private void Explode(){
-
+        
 
     }
 

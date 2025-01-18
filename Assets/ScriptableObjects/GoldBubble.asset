@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41e7ceeab28120b4b8ad72176707b368, type: 3}
-  m_Name: BubbleUnit
+  m_Name: GoldBubble
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   IdleAnimator: {fileID: 0}
   HitAnimator: {fileID: 0}
   DeadAnimator: {fileID: 0}
-  hp: 10
+  hp: 0
   damage: 0
   rewardpoints: 0
   dropItem: {fileID: 0}
