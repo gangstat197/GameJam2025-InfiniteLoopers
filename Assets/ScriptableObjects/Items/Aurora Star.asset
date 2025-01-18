@@ -15,3 +15,7 @@ MonoBehaviour:
   itemIndex: 2
   itemName: Aurora Star
   itemSprite: {fileID: 1812791796796410547, guid: ef4006c747842b94a8b1d0ea06a643d8, type: 3}
+  specialCoolDown: 0
+  vignetteColor:
+    overrideState: 0
+    value: {r: 1, g: 0.8449572, b: 0, a: 0}

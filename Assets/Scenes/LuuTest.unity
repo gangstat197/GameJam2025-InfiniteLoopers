@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1107, y: -389}
+  m_AnchoredPosition: {x: -811, y: -549}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &91658472
@@ -339,7 +339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1084242526580923347, guid: 3581c784b170d8045822d146e852c548, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2392202719601195893, guid: 3581c784b170d8045822d146e852c548, type: 3}
       propertyPath: audioManager
@@ -475,7 +475,15 @@ MonoBehaviour:
   rangeIndicator: {fileID: 944984261}
   crossHairColor: {r: 0.36078432, g: 1, b: 1, a: 1}
   delayBar: {fileID: 1754695651}
-  collectableItems: []
+  specialItems:
+  - {fileID: 11400000, guid: 0c36d85c4df92c548a2b297c9aef6d8b, type: 2}
+  - {fileID: 11400000, guid: 7c45fdc316aabd546b9cc93fa6dbf8e4, type: 2}
+  - {fileID: 11400000, guid: 138b958f0e6ad6546ae65593e6a7e6ba, type: 2}
+  - {fileID: 11400000, guid: f33f77e3b7d5dbc4cba7c0694472c077, type: 2}
+  - {fileID: 11400000, guid: d2d0bcf850be709438a45e3fa817f70f, type: 2}
+  skillChosenIndex: 0
+  specialText: {fileID: 91658472}
+  specialSpriteRenderer: {fileID: 1059271275}
 --- !u!1 &404615340
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,12 +731,11 @@ RectTransform:
   m_Children:
   - {fileID: 91658471}
   - {fileID: 1596833792}
-  - {fileID: 1059271274}
   m_Father: {fileID: 1396284242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39, y: 50}
+  m_AnchoredPosition: {x: 1652, y: 911}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &602880342
@@ -929,7 +936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8662880541815804322, guid: ed518b8c4d51a1b429daabd0558ab566, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2140,16 +2147,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059271273}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 53.51, y: 53.51, z: 53.51}
+  m_LocalScale: {x: 0.23265216, y: 0.23265216, z: 0.23265216}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 593515100}
+  m_Father: {fileID: 1596833792}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -737, y: -361}
+  m_AnchoredPosition: {x: 0.091308594, y: 0.073913574}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1059271275
@@ -2293,7 +2300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1084242526580923347, guid: 3581c784b170d8045822d146e852c548, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2392202719601195893, guid: 3581c784b170d8045822d146e852c548, type: 3}
       propertyPath: audioManager
@@ -2902,6 +2909,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 807197585}
+  - {fileID: 1059271274}
   m_Father: {fileID: 593515100}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2975,7 +2983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1084242526580923347, guid: 3581c784b170d8045822d146e852c548, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2392202719601195893, guid: 3581c784b170d8045822d146e852c548, type: 3}
       propertyPath: audioManager

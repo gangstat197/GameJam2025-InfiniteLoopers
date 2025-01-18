@@ -8,7 +8,7 @@ public class PostProcessingManager : MonoBehaviour
 {
     // Start is called before the first frame update
     private PostProcessVolume postProcessVolume;
-    public static PostProcessManager instance;
+    public static PostProcessingManager instance;
 
     private void Awake() {
         instance = this;

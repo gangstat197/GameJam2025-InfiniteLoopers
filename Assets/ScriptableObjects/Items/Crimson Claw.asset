@@ -15,3 +15,7 @@ MonoBehaviour:
   itemIndex: 3
   itemName: Crimson Claw
   itemSprite: {fileID: 372366644009865317, guid: ef4006c747842b94a8b1d0ea06a643d8, type: 3}
+  specialCoolDown: 0
+  vignetteColor:
+    overrideState: 0
+    value: {r: 1, g: 0, b: 0, a: 0}
