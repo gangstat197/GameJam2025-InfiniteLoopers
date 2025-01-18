@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e7ceeab28120b4b8ad72176707b368, type: 3}
-  m_Name: BubbleUnit
+  m_Script: {fileID: 11500000, guid: fd4f2616be6a1a7499e4878ae657478d, type: 3}
+  m_Name: Luminous Drift
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  hp: 10
-  rewardpoints: 4
-  dropItem: {fileID: 6950537693134514832, guid: 785f0a900a93151448a1ada31847361d, type: 3}
-  specialItem: {fileID: 0}
+  itemIndex: 0
+  itemName: Luminous Drift
+  itemSprite: {fileID: 0}
