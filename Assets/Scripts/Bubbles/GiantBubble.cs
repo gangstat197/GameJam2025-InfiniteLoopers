@@ -30,8 +30,9 @@ public class GiantBubble : BubbleUnit
 
         }
 
-        Destroy(gameObject);
-
+        Transform firstChild = transform.GetChild(0);
+        BubbleRenderer renderer = firstChild.GetComponent<BubbleRenderer>();
+        renderer.animator.Play("Death1");
     }
 
     public override void Update(){

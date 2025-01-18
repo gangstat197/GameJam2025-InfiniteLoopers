@@ -106,9 +106,17 @@ public class BubbleUnit : MonoBehaviour
         }
 
         if (hp <= 0){
-            Dead();
+            hp += 1;
+            StartCoroutine(Delete());
         }
 
+    }
+
+    public virtual IEnumerator Delete()
+    {
+        Dead();
+        yield return new WaitForSeconds(0.3f);
+        Destroy(gameObject);
     }
 
 
@@ -134,8 +142,11 @@ public class BubbleUnit : MonoBehaviour
                 }
         }
 
+        Transform firstChild = transform.GetChild(0);
+        BubbleRenderer renderer = firstChild.GetComponent<BubbleRenderer>();
+        renderer.animator.Play("Death1");
 
-        Destroy(gameObject);
+        
     }
 
 }

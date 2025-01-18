@@ -19,12 +19,16 @@ public class RedBubble : BubbleUnit
 
         this.Explode();
 
-        Destroy(gameObject);
-
     }
 
     private void Explode(){
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 5f);
+
+        Transform firstChild = transform.GetChild(0);
+        BubbleRenderer renderer = firstChild.GetComponent<BubbleRenderer>();
+        renderer.animator.Play("Death1");
+
+
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 2.5f);
 
         foreach (Collider2D x in hitColliders){
 

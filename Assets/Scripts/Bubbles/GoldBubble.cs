@@ -16,13 +16,6 @@ public class GoldBubble : BubbleUnit
 
     public override void Dead(){
 
-        /*
-
-
-            Add reward later 
-
-
-        */
         
         GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
 
@@ -30,7 +23,9 @@ public class GoldBubble : BubbleUnit
         Vector2 dropDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         lootItem.GetComponent<Rigidbody2D>().AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
 
-        Destroy(gameObject);
+        Transform firstChild = transform.GetChild(0);
+        BubbleRenderer renderer = firstChild.GetComponent<BubbleRenderer>();
+        renderer.animator.Play("Death1");
 
     }
 

@@ -19,13 +19,11 @@ public class CursorManager : MonoBehaviour
       {
         // Tắt con trỏ khi ở trạng thái PlayState
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked; // Khóa con trỏ vào giữa màn hình
       }
       else
       {
         // Bật con trỏ trong các trạng thái khác
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None; // Thả tự do con trỏ
       }
     }   
 }
