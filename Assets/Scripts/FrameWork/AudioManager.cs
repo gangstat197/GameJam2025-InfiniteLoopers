@@ -4,13 +4,13 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioManager : Singleton<AudioManager>
+public class AudioManager : MonoBehaviour
 {
     
     public Sound[] sounds;
     [HideInInspector] public List<GameObject> soundObjLst;
     // Start is called before the first frame update
-    new void Awake()
+    void Awake()
     {
         
         foreach(Sound s in sounds){
@@ -45,5 +45,6 @@ public class AudioManager : Singleton<AudioManager>
             soundObj.SetActive(true);
             soundObj.GetComponent<AudioSource>().Play();
         }
+        //.Play("Bubble pop 1")
     }
 }
