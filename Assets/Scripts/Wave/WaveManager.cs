@@ -9,6 +9,8 @@ public class WaveManager: MonoBehaviour
     protected static WaveManager instance;
     public static WaveManager Instance{get => instance;}
     public int wave;
+    public int waveMax;
+
     public int curBubbles;
 
     // random ra monster mỗi lần
@@ -50,20 +52,23 @@ public class WaveManager: MonoBehaviour
 
     void Spawn()
     {
+        Vector3 emptyVector = new Vector3(0f, 0f, 0f);
 
         if(wave <= 2){
             float randomValue = Random.Range(0f, 100f);
 
-            if(randomValue - 5f <= 0){
-                process(goldBubblePrefab);
+            if(randomValue - 70f <= 0){
+                process(goldBubblePrefab, emptyVector);
             }
 
-            process(bubbles[0]);
+            process(bubbles[0], emptyVector);
 
             curBubbles--;
 
             if(curBubbles == 0){
                 wave++;
+
+                waveMax = Mathf.Max(waveMax, wave);
                 curBubbles = 20 + 20*wave/10;
             }
             
@@ -73,16 +78,18 @@ public class WaveManager: MonoBehaviour
             float randomValue = Random.Range(0f, 100f);
 
             if(randomValue - 5f <= 0){
-                process(goldBubblePrefab);
+                process(goldBubblePrefab, emptyVector);
             }
 
             int random = Random.Range(0, 2);
-            process(bubbles[random]);
+            process(bubbles[random], emptyVector);
 
             curBubbles--;
 
             if(curBubbles == 0){
                 wave++;
+
+                waveMax = Mathf.Max(waveMax, wave);
                 curBubbles = 20 + 20*wave/10;
             }
         }
@@ -92,17 +99,19 @@ public class WaveManager: MonoBehaviour
             float randomValue = Random.Range(0f, 100f);
 
             if(randomValue - 5f <= 0){
-                process(goldBubblePrefab);
+                process(goldBubblePrefab, emptyVector);
             }
 
             int random = Random.Range(0, bubbles.Count);
             Debug.Log(random);
-            process(bubbles[random]);
+            process(bubbles[random], emptyVector);
 
             curBubbles--;
 
             if(curBubbles == 0){
                 wave++;
+
+                waveMax = Mathf.Max(waveMax, wave);
                 curBubbles = 20 + 20*wave/10;
             }
 
@@ -110,10 +119,17 @@ public class WaveManager: MonoBehaviour
         
     }
 
-    void process(GameObject cur){
-        // Random start-end point
-        Vector3 startPoint = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
+    public void process(GameObject cur, Vector3 startPoint){
+        Vector3 emptyVector = new Vector3(0f, 0f, 0f);
+        if(startPoint == emptyVector){
+            // Random start-end point
+            startPoint = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
+            
+        }
+
+        Debug.Log(startPoint);
         Vector3 endPoint = endPoints[Random.Range(0, endPoints.Length)].position;
+        
 
         GameObject bubble = Instantiate(cur, startPoint, Quaternion.identity);
         bubble.GetComponent<BubbleUnit>().Spawn(startPoint, endPoint, Speed);

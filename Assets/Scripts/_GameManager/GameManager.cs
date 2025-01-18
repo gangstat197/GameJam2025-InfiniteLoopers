@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    // Kiem soat state hien tai cua tro choi
     public static event Action<GameState> OnGameStateChanged;
 
     private void Awake() {
