@@ -32,7 +32,7 @@ public class RedBubble : BubbleUnit
                 BubbleUnit bU = x.GetComponent<BubbleUnit>();
 
                 if(bU != null){
-                    bU.Hitted(10f);
+                    bU.Hitted(10f, true);
                 }
             }
             
