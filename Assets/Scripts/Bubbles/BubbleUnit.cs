@@ -11,15 +11,11 @@ public class BubbleUnit : MonoBehaviour
     [SerializeField]
     protected Sprite sprite;
 
-    protected Animator IdleAnimator;
-    protected Animator HitAnimator;
-    protected Animator DeadAnimator;
 
     public float hp; // hp thực tế 
     public float hpMax;
 
-    protected float damage;
-    protected float rewardpoints;
+    protected int rewardpoints;
 
     public BubbleData bubbleData;
 
@@ -28,17 +24,13 @@ public class BubbleUnit : MonoBehaviour
     protected bool isMoving = false;
 
 
-    protected void SetValues(Sprite sprite, Animator IdleAnimator, Animator HitAnimator, Animator DeadAnimator, float hp, float damage, float rewardpoints){
+    protected void SetValues(Sprite sprite, float hp, int rewardpoints){
         this.sprite = sprite;
-        this.IdleAnimator = IdleAnimator;
-        this.HitAnimator = HitAnimator;
-        this.DeadAnimator = DeadAnimator;
 
         // increase by wave 
         this.hp = hp; // this.hp = hp + %WaveManager.Instance.wave
         this.hpMax = hp; // don't change
 
-        this.damage = damage; // this.damage = damage + %WaveManager.Instance.wave
         this.rewardpoints = rewardpoints; // this.rewardpoints = rewardpoints + %WaveManager.Instance.wave
     }
 
@@ -50,9 +42,7 @@ public class BubbleUnit : MonoBehaviour
 
             // SetValues for each type of Bubble
             SetValues(
-                bubbleData.sprite, bubbleData.IdleAnimator, bubbleData.HitAnimator, 
-                bubbleData.DeadAnimator, bubbleData.hp, bubbleData.damage, bubbleData.rewardpoints
-            );
+                bubbleData.sprite, bubbleData.hp, bubbleData.rewardpoints);
        }
 
     }
@@ -63,6 +53,7 @@ public class BubbleUnit : MonoBehaviour
         transform.position = start;
         
         this.start = start;
+
         this.end = end;
 
         isMoving = true;
@@ -70,7 +61,7 @@ public class BubbleUnit : MonoBehaviour
     }
 
     // Make calculate, animation when bubbles be hitted 
-    public virtual void Hitted(float damage){
+    public virtual void Hitted(float damage, bool check = false){
         // Waiting for Luu's pointer finish to link
         
         Debug.Log($"damage = {damage}");
@@ -83,7 +74,10 @@ public class BubbleUnit : MonoBehaviour
         renderer.GetHurt(hp, hpMax);
 
         float counterDamage = damage - damage * (hpMax - hp) / hpMax;
-        Player.instance.PlayerHitted(counterDamage);
+        if(!check){
+            Player.instance.PlayerHitted(counterDamage);
+        }
+        
 
         if (hp <= 0) {
             Dead();
@@ -119,25 +113,29 @@ public class BubbleUnit : MonoBehaviour
 
 
     // Chance get item but 100% have rewardpoints 
-public virtual void Dead()
-{
-    float randomValue = UnityEngine.Random.Range(0f, 100f);
-
-    if (randomValue - 100f <= 0f)
+    public virtual void Dead()
     {
-        GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
+        float randomValue = UnityEngine.Random.Range(0f, 100f);
 
-        float dropForce = 30f;
-        Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
 
-        Rigidbody2D lootRb = lootItem.GetComponent<Rigidbody2D>();
-        lootRb.AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+        for(int i = 0; i < rewardpoints; i++){
+                if (randomValue - 100f <= 0f)
+                {
+                    GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
 
-        
-        lootRb.drag = 2f; 
+                    float dropForce = 30f;
+                    Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+
+                    Rigidbody2D lootRb = lootItem.GetComponent<Rigidbody2D>();
+                    lootRb.AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+
+                    
+                    lootRb.drag = 2f; 
+                }
+        }
+
+
+        Destroy(gameObject);
     }
-
-    Destroy(gameObject);
-}
 
 }

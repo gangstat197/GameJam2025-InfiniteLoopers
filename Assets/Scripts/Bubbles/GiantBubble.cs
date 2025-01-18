@@ -8,9 +8,6 @@ public class GiantBubble : BubbleUnit
 
     public GameObject BubbleUnitPrefab;
 
-    float timer = 0f;
-    float time = 3f;
-
     public override void Dead(){
 
 
@@ -39,12 +36,6 @@ public class GiantBubble : BubbleUnit
 
     public override void Update(){
         base.Update();
-
-        timer += Time.deltaTime;
-        if(timer >= time){
-            Dead();
-        }
-
     }
 
 

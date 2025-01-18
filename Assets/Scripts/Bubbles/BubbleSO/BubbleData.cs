@@ -4,14 +4,10 @@ using UnityEngine;
 public class BubbleData : ScriptableObject
 {
     public Sprite sprite;
-
-    public Animator IdleAnimator;
-    public Animator HitAnimator;
-    public Animator DeadAnimator;
-
     public float hp;
-    public float damage;
-    public float rewardpoints;
+    public int rewardpoints;
 
     public GameObject dropItem;
+
+    public GameObject specialItem;
 }

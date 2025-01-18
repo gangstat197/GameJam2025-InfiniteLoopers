@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 100
   playerArmor: 0
-  playerAttackRange: 1
-  playerDamage: 1000
+  playerAttackRange: 1.5
+  playerDamage: 5
   playerCritRate: 5
   playerSpeed: 1

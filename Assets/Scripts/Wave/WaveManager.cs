@@ -19,12 +19,18 @@ public class WaveManager: MonoBehaviour
     public GameObject goldBubblePrefab;
 
 
-    public Transform[] spawnPoints;  
-    public Transform[] endPoints;   
+    public Transform[] spawnPoints1;
+    
+    public Transform[] endPoints1;
+
+
+    public Transform[] spawnPoints2;
+    
+    public Transform[] endPoints2;
 
     // Time spawn each wave 
-    public float spawnInterval = 1f; 
-    public float Speed = 2f;  
+    public float spawnInterval = 0.5f; 
+    public float Speed = 1.5f;  
 
     private float timer;
 
@@ -121,14 +127,30 @@ public class WaveManager: MonoBehaviour
 
     public void process(GameObject cur, Vector3 startPoint){
         Vector3 emptyVector = new Vector3(0f, 0f, 0f);
+
+        int rand = Random.Range(1, 3);
+
         if(startPoint == emptyVector){
             // Random start-end point
-            startPoint = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
+
+            if(rand == 1){
+                startPoint = spawnPoints1[Random.Range(0, spawnPoints1.Length)].position;
+            }
+            else{
+                startPoint = spawnPoints2[Random.Range(0, spawnPoints2.Length)].position;
+            }
+            
             
         }
 
-        Debug.Log(startPoint);
-        Vector3 endPoint = endPoints[Random.Range(0, endPoints.Length)].position;
+        Vector3 endPoint;
+
+        if(rand == 1){
+            endPoint = endPoints1[Random.Range(0, endPoints1.Length)].position;
+        }
+        else{
+            endPoint = endPoints2[Random.Range(0, endPoints2.Length)].position;
+        }
         
 
         GameObject bubble = Instantiate(cur, startPoint, Quaternion.identity);

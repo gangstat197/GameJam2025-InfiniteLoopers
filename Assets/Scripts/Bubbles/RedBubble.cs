@@ -28,11 +28,14 @@ public class RedBubble : BubbleUnit
 
         foreach (Collider2D x in hitColliders){
 
-            BubbleUnit bU = x.GetComponent<BubbleUnit>();
+            if (x != GetComponent<Collider2D>()){
+                BubbleUnit bU = x.GetComponent<BubbleUnit>();
 
-            if(bU != null){
-                bU.Hitted(10f);
+                if(bU != null){
+                    bU.Hitted(10f, true);
+                }
             }
+            
             
         }
 

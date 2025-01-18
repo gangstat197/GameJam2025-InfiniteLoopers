@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
         }
 
         // playerCurrentHealth -= Time.deltaTime * 0.2f * WaveManager.Instance.wave;
-        playerCurrentHealth -= Time.deltaTime * 0.2f;
+        playerCurrentHealth -= Time.deltaTime;
         if (playerCurrentHealth == 0) {
             Dead();
         }
