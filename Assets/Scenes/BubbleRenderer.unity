@@ -542,19 +542,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - soundName: Bubble pop 1
-    clip: {fileID: 8300000, guid: 4ca0a3defeebdfa4eb897b5f1a70b1be, type: 3}
+    clip: {fileID: 8300000, guid: c47c099acc04a3c48937c5471b50227b, type: 3}
     volume: 0
     pitch: 0
     isLoop: 0
     source: {fileID: 0}
-  - soundName: Bubble pop 1
-    clip: {fileID: 0}
+  - soundName: Bubble pop 2
+    clip: {fileID: 8300000, guid: 7ca3d12659b22fd4a984022b2fb47d4c, type: 3}
     volume: 0
     pitch: 0
     isLoop: 0
     source: {fileID: 0}
   - soundName: Bubble pop 3
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 4ecfda063a925f44c8112b144dfbd32c, type: 3}
     volume: 0
     pitch: 0
     isLoop: 0
