@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 40630625675322250}
   - component: {fileID: 7633710213331901158}
   - component: {fileID: 7868884368565860347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GiantBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,13 +92,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 40630625675322250}
     m_Modifications:
+    - target: {fileID: 676324690980465082, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250252573195492202, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954907077411108436, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2364942835943503939, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
       propertyPath: m_Name
       value: Green bubble renderer
       objectReference: {fileID: 0}
+    - target: {fileID: 2364942835943503939, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2723058192335064127, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
       propertyPath: isTesting
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930601281785784547, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165547754458303751, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527482480906038685, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3872392278270087616, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -139,6 +167,38 @@ PrefabInstance:
     - target: {fileID: 3872392278270087616, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714843074673994191, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786109837525092177, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807612304021813508, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048030709618387959, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156185236730547138, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189657924120779238, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7904843687037851037, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332382193810022176, guid: f8a614750b10704489f389bd53ad7f73, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

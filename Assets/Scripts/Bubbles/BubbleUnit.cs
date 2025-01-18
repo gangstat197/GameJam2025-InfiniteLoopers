@@ -15,8 +15,8 @@ public class BubbleUnit : MonoBehaviour
     protected Animator HitAnimator;
     protected Animator DeadAnimator;
 
-    protected float hp; // hp thực tế 
-    protected float hpMax;
+    public float hp; // hp thực tế 
+    public float hpMax;
 
     protected float damage;
     protected float rewardpoints;
@@ -73,7 +73,7 @@ public class BubbleUnit : MonoBehaviour
     public virtual void Hitted(float damage){
         // Waiting for Luu's pointer finish to link
         
-
+        Debug.Log($"damage = {damage}");
         //renderer.GetHurt(hp, maxhp);
         hp -= damage;
         hp = math.max(hp, 0);
@@ -111,7 +111,7 @@ public class BubbleUnit : MonoBehaviour
             Moving(start, end, 2f);
         }
 
-        if(hp <= 0){
+        if (hp <= 0){
             Dead();
         }
 
@@ -119,26 +119,25 @@ public class BubbleUnit : MonoBehaviour
 
 
     // Chance get item but 100% have rewardpoints 
-    public virtual void Dead(){
+public virtual void Dead()
+{
+    float randomValue = UnityEngine.Random.Range(0f, 100f);
+
+    if (randomValue - 100f <= 0f)
+    {
+        GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
+
+        float dropForce = 30f;
+        Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+
+        Rigidbody2D lootRb = lootItem.GetComponent<Rigidbody2D>();
+        lootRb.AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
+
         
-        /*
-
-            Add increase reward here
-
-        */
-
-
-        float randomValue = UnityEngine.Random.Range(0f, 100f);
-
-        if(randomValue - 10f <= 0){
-            
-            GameObject lootItem = Instantiate(bubbleData.dropItem, transform.position, Quaternion.identity);
-
-            float dropForce = 300f;
-            Vector2 dropDirection = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
-            lootItem.GetComponent<Rigidbody2D>().AddForce(dropForce * dropDirection, ForceMode2D.Impulse);
-        }
-
-        Destroy(gameObject);
+        lootRb.drag = 2f; 
     }
+
+    Destroy(gameObject);
+}
+
 }

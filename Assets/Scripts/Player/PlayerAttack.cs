@@ -81,7 +81,8 @@ public class PlayerAttack : MonoBehaviour
             BubbleUnit bubbleUnit = bubble.GetComponent<BubbleUnit>();
 
             bubbleUnit.Hitted(CalculateDamage(playerDamage, playerCritRate));
-
+            Debug.Log($"Hit {bubble.name}");
+            Debug.Log($"First Damage {playerDamage}");
         }  
 
         if (rangeIndicator != null)

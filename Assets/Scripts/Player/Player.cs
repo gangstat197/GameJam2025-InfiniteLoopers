@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         playerCurrentHealth = playerData.playerHealth;
         playerArmor = playerData.playerArmor;
         playerAttackRange = playerData.playerAttackRange;
-        playerDamage = playerData.playerArmor;
+        playerDamage = playerData.playerDamage;
         playerCritRate = playerData.playerCritRate;
         playerSpeed = playerData.playerSpeed;
     }

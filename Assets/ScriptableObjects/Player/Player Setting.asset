@@ -15,6 +15,6 @@ MonoBehaviour:
   playerHealth: 100
   playerArmor: 0
   playerAttackRange: 1
-  playerDamage: 5
+  playerDamage: 1000
   playerCritRate: 5
   playerSpeed: 1
