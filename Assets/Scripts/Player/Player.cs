@@ -33,7 +33,15 @@ public class Player : MonoBehaviour
     }
 
     void Awake() {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); 
+        }
+        else
+        {
+            Destroy(gameObject); 
+        }
     }
 
     void Start()
