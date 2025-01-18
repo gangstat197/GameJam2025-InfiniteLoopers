@@ -71,8 +71,7 @@ public class BubbleUnit : MonoBehaviour
     public virtual void Hitted(float damage){
         // Waiting for Luu's pointer finish to link
 
-
-
+        //renderer.GetHurt(hp, maxhp);
 
     }
 
