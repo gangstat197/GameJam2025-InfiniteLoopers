@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 
 // Waiting for link with gameState
@@ -42,6 +43,20 @@ public class WaveManager: MonoBehaviour
 
     public void Start(){
         curBubbles = 20;
+
+        GameManager.OnGameStateChanged += WaveManagerOnStateChanged;
+    }
+
+    public void OnDestroy() {
+        GameManager.OnGameStateChanged -= WaveManagerOnStateChanged;
+    }
+
+    public void WaveManagerOnStateChanged(GameState newState) {
+        if (newState == GameState.PlayState) {
+            gameObject.SetActive(true);
+        } else {
+            gameObject.SetActive(false);
+        }
     }
 
     void Update()

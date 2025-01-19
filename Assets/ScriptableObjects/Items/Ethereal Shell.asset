@@ -15,3 +15,8 @@ MonoBehaviour:
   itemIndex: 4
   itemName: Ethereal Shell
   itemSprite: {fileID: -6699076979697824190, guid: ef4006c747842b94a8b1d0ea06a643d8, type: 3}
+  specialCoolDown: 20
+  specialDuration: 6
+  vignetteColor:
+    overrideState: 0
+    value: {r: 0, g: 1, b: 0.009297371, a: 0}

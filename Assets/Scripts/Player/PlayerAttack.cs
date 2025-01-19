@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Runtime.Versioning;
+using TMPro;
 using Unity.VisualScripting;
-using UnityEditor.Media;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
@@ -19,18 +21,27 @@ public class PlayerAttack : MonoBehaviour
 
     private float attackRange;
 
-
     private float lastUntiTime;
-    public List<GameObject> collectableItems;
-    ItemUnit item;
+    public List<CollectableItems> specialItems;
+
+    public int skillChosenIndex;
+
+    public TextMeshProUGUI specialText;
+    public SpriteRenderer specialSpriteRenderer;
 
     public void Start() {
         rangeIndicator.sortingOrder = 10;
         rangeIndicator.transform.position = new UnityEngine.Vector3(rangeIndicator.transform.position.x, rangeIndicator.transform.position.y, -1);
         rangeIndicator.color = crossHairColor;
         lastTimeShoot = -10;
+        lastUntiTime = -100;
 
         delayBarFirstScale = delayBar.transform.localScale;
+        SetSpecial();
+    }
+
+    public void SetIndexSkill(int index) {
+        skillChosenIndex = index;
     }
 
     public void Update() {
@@ -136,5 +147,119 @@ public class PlayerAttack : MonoBehaviour
 
     // PLAYER SPECIAL ATTACK
 
+    public void SetSpecial() {
+        specialSpriteRenderer.sprite = specialItems[skillChosenIndex].itemSprite;
+        specialText.text = specialItems[skillChosenIndex].itemName;
+    }
 
+    public void Special() {
+        if (Time.time - lastUntiTime < specialItems[skillChosenIndex].specialCoolDown) return; 
+        lastUntiTime = Time.time;
+
+        Debug.Log("Using Special!");
+        if (skillChosenIndex == 1) {
+            BoneShard();
+        } else 
+        if (skillChosenIndex == 2) {
+            Starfish();
+        } else 
+        if (skillChosenIndex == 3) {
+            Claw();
+        } else 
+        if (skillChosenIndex == 4) {
+            Shell();
+        }
+    }
+
+
+    // Coroutine cho BoneShard
+    IEnumerator BoneShardCoroutine()
+    {
+        // Tăng Damage
+        Debug.Log("Bone Shard activated!");
+        Player.instance.playerDamage *= 3;
+        PostProcessingManager.instance.ChangeToNewVig(specialItems[skillChosenIndex].vignetteColor);
+
+        // Chờ đợi trong thời gian trì hoãn
+        yield return new WaitForSeconds(specialItems[skillChosenIndex].specialDuration);
+
+        // Sau khi thời gian trôi qua, giảm damage và trả về PostProcessing bình thường
+        Player.instance.playerDamage /= 3;
+        PostProcessingManager.instance.ReturnToNormal();
+    }
+
+    // BoneShard
+    public void BoneShard()
+    {
+        StartCoroutine(BoneShardCoroutine());
+    }
+
+    // Coroutine cho Claw
+    IEnumerator ClawCoroutine()
+    {
+        // Tăng Damage & Range
+        Debug.Log("Claw activated!");
+        Player.instance.playerDamage *= 1.5f;
+        Player.instance.playerAttackRange *= 2f;
+        PostProcessingManager.instance.ChangeToNewVig(specialItems[skillChosenIndex].vignetteColor);
+
+        // Chờ đợi trong thời gian trì hoãn
+        yield return new WaitForSeconds(specialItems[skillChosenIndex].specialDuration);
+
+        // Sau khi thời gian trôi qua, giảm Damage & Range lại và trả về PostProcessing bình thường
+        Player.instance.playerDamage /= 1.5f;
+        Player.instance.playerAttackRange /= 2f;
+        PostProcessingManager.instance.ReturnToNormal();
+    }
+
+    // Claw
+    public void Claw()
+    {
+        StartCoroutine(ClawCoroutine());
+    }
+
+    // Coroutine cho Shell
+    IEnumerator ShellCoroutine()
+    {
+        // Bật Invincibility
+        Debug.Log("Shell activated!");
+        Player.instance.isInvicible = true;
+        PostProcessingManager.instance.ChangeToNewVig(specialItems[skillChosenIndex].vignetteColor);
+
+        // Chờ đợi trong thời gian trì hoãn
+        yield return new WaitForSeconds(specialItems[skillChosenIndex].specialDuration);
+
+        // Sau khi thời gian trôi qua, tắt Invincibility và trả về PostProcessing bình thường
+        Player.instance.isInvicible = false;
+        PostProcessingManager.instance.ReturnToNormal();
+    }
+
+    // Shell
+    public void Shell()
+    {
+        StartCoroutine(ShellCoroutine());
+    }
+
+
+    IEnumerator StarfishCoroutine() {
+        // Tăng làm chậm (giảm tốc độ)
+        Debug.Log("Starfish activated!");
+        Player.instance.playerSpeed /= 2;
+        PostProcessingManager.instance.ChangeToNewVig(specialItems[skillChosenIndex].vignetteColor);
+
+        // In ra thời gian trì hoãn
+        Debug.Log(specialItems[skillChosenIndex].specialDuration);
+
+        // Chờ đợi trong thời gian trì hoãn
+        yield return new WaitForSeconds(specialItems[skillChosenIndex].specialDuration);
+
+
+        Debug.Log("Starfish deactivated!");
+        Player.instance.playerSpeed *= 2;
+        PostProcessingManager.instance.ReturnToNormal();
+    }
+
+    public void Starfish() {
+        StartCoroutine(StarfishCoroutine());
+    }
 }

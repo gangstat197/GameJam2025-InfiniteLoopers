@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public PlayerAttack playerAttackComponent;
     public HealthSystem healthSystem;
 
+    public bool isInvicible;
+
     private void SetValue(PlayerData playerData) {
         playerHealth = playerData.playerHealth;
         playerCurrentHealth = playerData.playerHealth;
@@ -33,22 +35,50 @@ public class Player : MonoBehaviour
     }
 
     void Awake() {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); 
+        }
+        else
+        {
+            Destroy(gameObject); 
+        }
+
+        GameManager.OnGameStateChanged += PlayerOnStateChanged;
+    }
+
+    private void OnDestroy() {
+        GameManager.OnGameStateChanged -= PlayerOnStateChanged;
     }
 
     void Start()
-    {
+    {   
         SetValue(playerData);
+        isInvicible = false;
     }
-
+    
+    public void PlayerOnStateChanged(GameState newState) {
+        Player.instance.playerCurrentHealth = Player.instance.playerHealth;
+        if (newState == GameState.PlayState) {
+            gameObject.SetActive(true);
+        } else {
+            gameObject.SetActive(false);
+            
+        }
+    }
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
             playerAttackComponent.LightAttack(playerDamage, playerCritRate);
         }
 
+        if (Input.GetMouseButtonDown(1)) {
+            playerAttackComponent.Special();
+        }
+
         // playerCurrentHealth -= Time.deltaTime * 0.2f * WaveManager.Instance.wave;
-        playerCurrentHealth -= Time.deltaTime;
-        if (playerCurrentHealth == 0) {
+        if (!isInvicible) playerCurrentHealth -= Time.deltaTime;
+        if (playerCurrentHealth <= 0) {
             Dead();
         }
 
@@ -62,10 +92,6 @@ public class Player : MonoBehaviour
     }
 
     public void Dead() {
-        GameManager.instance.UpdateGameState(GameState.UpdateState);
-    }
-
-    public void Special() {
-
+        GameManager.instance.UpdateGameState(GameState.DeadState);
     }
 }
