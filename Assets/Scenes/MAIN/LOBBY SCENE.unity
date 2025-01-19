@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11341,7 +11341,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 138b958f0e6ad6546ae65593e6a7e6ba, type: 2}
   - {fileID: 11400000, guid: f33f77e3b7d5dbc4cba7c0694472c077, type: 2}
   - {fileID: 11400000, guid: d2d0bcf850be709438a45e3fa817f70f, type: 2}
-  skillChosenIndex: 3
+  - {fileID: 0}
+  skillChosenIndex: 5
   specialText: {fileID: 117467883}
   specialSpriteRenderer: {fileID: 132166384}
 --- !u!114 &1503092147
