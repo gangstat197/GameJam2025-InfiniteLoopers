@@ -59,10 +59,12 @@ public class Player : MonoBehaviour
     }
     
     public void PlayerOnStateChanged(GameState newState) {
+        Player.instance.playerCurrentHealth = Player.instance.playerHealth;
         if (newState == GameState.PlayState) {
             gameObject.SetActive(true);
         } else {
             gameObject.SetActive(false);
+            
         }
     }
     void Update() {

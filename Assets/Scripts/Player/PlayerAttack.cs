@@ -4,7 +4,6 @@ using System.Numerics;
 using System.Runtime.Versioning;
 using TMPro;
 using Unity.VisualScripting;
-using UnityEditor.Media;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
@@ -39,6 +38,10 @@ public class PlayerAttack : MonoBehaviour
 
         delayBarFirstScale = delayBar.transform.localScale;
         SetSpecial();
+    }
+
+    public void SetIndexSkill(int index) {
+        skillChosenIndex = index;
     }
 
     public void Update() {
